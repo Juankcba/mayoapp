@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
+import { ColorSchemeName, Pressable, Image } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -16,6 +16,11 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
+import TabThreeScreen from '../screens/TabTwoScreen';
+import TabFourScreen from '../screens/TabFourScreen';
+import TabFiveScreen from '../screens/TabFiveScreen';
+import TabSixScreen from '../screens/TabSixScreen';
+import TabSevenScreen from '../screens/TabSevenScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -67,31 +72,114 @@ function BottomTabNavigator() {
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
+          tabBarIcon: ({ color }) => (
+            <Image
+                source={require('../assets/images/home.png')}
+                resizeMode="contain"
+                style={{width: 26, height: 26, tintColor: color}}
               />
-            </Pressable>
           ),
+          
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
-        options={{
+         name="TabTwo"
+         component={TabTwoScreen}
+         options={({ navigation }: RootTabScreenProps<'TabTwo'>) => ({
           title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
+          tabBarIcon: ({ color }) => (
+            <Image
+                source={require('../assets/images/espec.png')}
+                resizeMode="contain"
+                style={{width: 26, height: 26, tintColor: color}}
+              />
+          ),
+          
+        })}
+         
+       />
+       <BottomTab.Screen
+         name="TabThree"
+         component={TabThreeScreen} 
+          options={({ navigation }: RootTabScreenProps<'TabThree'>) => ({
+          title: 'Tab Three',
+          tabBarIcon: ({ color }) => (
+            <Image
+                source={require('../assets/images/beaury-icon.png')}
+                resizeMode="contain"
+                style={{width: 26, height: 26, tintColor: color}}
+              />
+          ),
+          
+        })}
+         
+       />
+       <BottomTab.Screen
+         name="TabFour"
+         component={TabFourScreen}
+         options={({ navigation }: RootTabScreenProps<'TabFour'>) => ({
+          title: 'Tab Four',
+          tabBarIcon: ({ color }) => (
+            <Image
+                source={require('../assets/images/mensaje-icon.png')}
+                resizeMode="contain"
+                style={{width: 26, height: 26, tintColor: color}}
+              />
+          ),
+          
+        })}
+         
+         
+       />
+        <BottomTab.Screen
+         name="TabFive"
+         component={TabFiveScreen}
+         options={({ navigation }: RootTabScreenProps<'TabFive'>) => ({
+          title: 'Tab Five',
+          tabBarIcon: ({ color }) => (
+            <Image
+                source={require('../assets/images/derma-icon.png')}
+                resizeMode="contain"
+                style={{width: 26, height: 26, tintColor: color}}
+              />
+          ),
+          
+        })}
+         
+       />
+        <BottomTab.Screen
+         name="TabSix"
+         component={TabSixScreen}
+         options={({ navigation }: RootTabScreenProps<'TabSix'>) => ({
+          title: 'Tab Six',
+          tabBarIcon: ({ color }) => (
+            <Image
+                source={require('../assets/images/catalogo-icon.png')}
+                resizeMode="contain"
+                style={{width: 26, height: 26, tintColor: color}}
+              />
+          ),
+          
+        })}
+         
+       />
+        <BottomTab.Screen
+         name="TabSeven"
+         component={TabSevenScreen}
+         options={({ navigation }: RootTabScreenProps<'TabSeven'>) => ({
+          title: 'Tab Seven',
+          tabBarIcon: ({ color }) => (
+            <Image
+                source={require('../assets/images/notificaciones-icon.png')}
+                resizeMode="contain"
+                style={{width: 26, height: 26, tintColor: color}}
+              />
+          ),
+          
+        })}
+         
+       />
+      
     </BottomTab.Navigator>
   );
 }
@@ -105,3 +193,5 @@ function TabBarIcon(props: {
 }) {
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
 }
+
+

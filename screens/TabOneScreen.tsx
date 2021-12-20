@@ -1,16 +1,25 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import * as React from "react";
+import {  StyleSheet, ImageBackground } from "react-native";
+import { Input, Button } from "react-native-elements";
+import { Text, View } from "../components/Themed";
+import { RootTabScreenProps } from "../types";
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+export default function TabOneScreen({
+  navigation,
+}: RootTabScreenProps<"TabOne">) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+
+<ImageBackground source={require('../assets/images/especialista.png')} style={styles.button}/>
+<ImageBackground source={require('../assets/images/beauty.png')} style={styles.button}/>
+<ImageBackground source={require('../assets/images/mensajes.png')} style={styles.button}/>
+<ImageBackground source={require('../assets/images/derma.png')} style={styles.button}/>
+<ImageBackground source={require('../assets/images/catalogo.png')} style={styles.button}/>
+<ImageBackground source={require('../assets/images/notificaciones.png')} style={styles.button}/> 
+
+  
+    
     </View>
   );
 }
@@ -18,16 +27,31 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    },
   title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: "bold",
+    fontStyle: 'normal',
+    color: '#000',
+    fontFamily: 'dosis',
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
   },
+  button:{
+    backgroundColor: '#F5F5F5',
+    color: '#000',
+    width: 164,
+    height: 131,
+    margin: 8,
+    padding: 20,
+    
+    
+  }
 });
